@@ -1,0 +1,41 @@
+{
+  "skill_name": "collaborative-planning",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need a plan for migrating our company's internal wiki from Confluence to Notion. We have about 200 pages, 15 team members, and want to do it within 2 months. Can you help me plan this out?",
+      "expected_output": "Agent should ask clarifying questions about the migration (e.g., content types, permissions, integrations, who owns the migration) before presenting any plan outline",
+      "files": [],
+      "expectations": [
+        "The first response contains questions directed at the user, not a complete plan",
+        "The response does not include a full phase-by-phase plan in the first message",
+        "Questions address scope, constraints, or risks specific to the wiki migration",
+        "The agent restates understanding of the user's request before asking questions"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "help me plan my wedding. we're thinking late september, maybe 80-100 guests, budget around 30k. neither of us have planned one before lol",
+      "expected_output": "Agent should ask open questions about preferences, priorities, venue style, etc. before outlining any wedding plan",
+      "files": [],
+      "expectations": [
+        "The first response contains questions, not a wedding plan",
+        "Questions are practical and relevant (venue preferences, priorities, cultural/religious considerations, etc.)",
+        "The tone matches the casual tone of the user's message",
+        "The agent does not immediately produce a timeline or checklist"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We need to implement a new onboarding process for our engineering team. Right now it's kind of ad hoc — new hires just get a laptop and a Slack invite and figure things out. We want something more structured that gets people productive within their first 2 weeks.",
+      "expected_output": "Agent asks about team size, current pain points, tools/systems new hires need access to, and what 'productive' means before writing a plan",
+      "files": [],
+      "expectations": [
+        "The first response asks clarifying questions rather than presenting an onboarding plan",
+        "Questions probe what 'productive in 2 weeks' means concretely",
+        "The agent identifies gaps in the request (team size, role types, existing documentation)",
+        "No full plan or phase breakdown appears in the first response"
+      ]
+    }
+  ]
+}

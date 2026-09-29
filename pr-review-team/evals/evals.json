@@ -1,0 +1,35 @@
+{
+  "skill_name": "pr-review-team",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Do a thorough team review of the last 3 commits on this repo",
+      "expected_output": "A consolidated review document with all 5 sections populated, including LLM/AI-Specific Findings since this is an AI chatbot repo. Should include Executive Summary, Critical/Important/Suggestion tiers, and a clear Verdict.",
+      "files": [],
+      "context": {
+        "cwd": "/Users/pavs/workspace/pavs/ai-chatbot",
+        "description": "AI chatbot repo — all 5 reviewers should be at full scope"
+      }
+    },
+    {
+      "id": 2,
+      "prompt": "Launch the review team on the last 3 commits",
+      "expected_output": "A consolidated review with LLM Engineer and Prompt Engineer gracefully noting limited applicability. Software Architect, First Principles, and Devil's Advocate should have substantive findings on the Telegram bot code. The LLM/AI-Specific Findings section should be omitted or minimal.",
+      "files": [],
+      "context": {
+        "cwd": "/Users/pavs/workspace/pavs/tg-bot",
+        "description": "Telegram bot repo (Bun + Hono) — non-AI code, tests limited-scope handling"
+      }
+    },
+    {
+      "id": 3,
+      "prompt": "Can you tear this apart from every angle? Look at the last 3 commits",
+      "expected_output": "Should trigger the skill from informal language. Same quality consolidated review as the other test cases. The casual phrasing should not degrade the review quality.",
+      "files": [],
+      "context": {
+        "cwd": "/Users/pavs/workspace/pavs/tg-bot",
+        "description": "Tests auto-triggering on casual language"
+      }
+    }
+  ]
+}
