@@ -35,8 +35,9 @@ ln -sfn $REPO/CLAUDE.md ~/.claude/CLAUDE.md
 
 # Skills: Codex reads ~/.agents/skills directly, Claude reads ~/.claude/skills
 for s in $(ls -d $REPO/*/ | xargs -n1 basename | grep -v memory-sync); do
-  ln -sfn $REPO/$s ~/.agents/skills/$s
-  ln -sfn ../../.agents/skills/$s ~/.claude/skills/$s
+  rm -rf ~/.agents/skills/$s ~/.claude/skills/$s
+  ln -s $REPO/$s ~/.agents/skills/$s
+  ln -s ../../.agents/skills/$s ~/.claude/skills/$s
 done
 
 # memory-sync is a Claude command
