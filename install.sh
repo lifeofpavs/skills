@@ -22,34 +22,43 @@ if [ ! -d "$REPO" ]; then
   git clone "$REPO_URL" "$REPO"
 fi
 
-mkdir -p ~/.agents/skills ~/.claude/skills ~/.claude/commands ~/.codex
+mkdir -p ~/.agents/skills ~/.claude ~/.codex
 
 # Global instructions: Codex reads ~/.codex/AGENTS.md, Claude reads ~/.claude/CLAUDE.md
 ln -sfn "$REPO/AGENTS.md" ~/.agents/AGENTS.md
 ln -sfn ../.agents/AGENTS.md ~/.codex/AGENTS.md
 ln -sfn "$REPO/CLAUDE.md" ~/.claude/CLAUDE.md
 
-# Third-party skills. CLAUDE_CONFIG_DIR is unset so they land in ~/.claude like the rest.
+# Third-party skills install into ~/.agents/skills, which Codex reads directly
 if command -v npx >/dev/null; then
   grep -v '^#' "$REPO/third-party-skills.txt" | while read -r source skills; do
     # shellcheck disable=SC2086 # $skills is a space-separated list
-    env -u CLAUDE_CONFIG_DIR npx -y skills add "$source" -g -y -a claude-code codex -s $skills </dev/null ||
+    npx -y skills add "$source" -g -y -a codex -s $skills </dev/null ||
       echo "Could not install skills from $source"
   done
 else
   echo "npx not found: install Node, then re-run to add third-party skills."
 fi
 
-# Skills: Codex reads ~/.agents/skills directly, Claude reads ~/.claude/skills
-for dir in "$REPO"/*/; do
-  s=$(basename "$dir")
-  [ "$s" = memory-sync ] && continue
-  rm -rf ~/.agents/skills/"$s" ~/.claude/skills/"$s"
+# Personal skills (memory-sync is a Claude command, not a skill)
+personal=$(cd "$REPO" && ls -d */ | tr -d / | grep -vx memory-sync)
+for s in $personal; do
+  rm -rf ~/.agents/skills/"$s"
   ln -s "$REPO/$s" ~/.agents/skills/"$s"
-  ln -s ../../.agents/skills/"$s" ~/.claude/skills/"$s"
 done
 
-# memory-sync is a Claude command, not a skill
-ln -sfn "$REPO/memory-sync/SKILL.md" ~/.claude/commands/memory-sync.md
+# Every Claude profile (~/.claude plus any ~/.claude_<name>) gets the same skills
+third_party=$(grep -v '^#' "$REPO/third-party-skills.txt" | cut -d' ' -f2-)
+for profile in ~/.claude ~/.claude_*/; do
+  [ -d "$profile" ] || continue
+  profile=${profile%/}
+  mkdir -p "$profile/skills" "$profile/commands"
+  for s in $personal $third_party; do
+    [ -e ~/.agents/skills/"$s" ] || continue
+    rm -rf "${profile:?}/skills/$s"
+    ln -s ~/.agents/skills/"$s" "$profile/skills/$s"
+  done
+  ln -sfn "$REPO/memory-sync/SKILL.md" "$profile/commands/memory-sync.md"
+done
 
 echo "Done. Run 'claude' and 'codex' once to log in."
