@@ -55,3 +55,4 @@ Tests written while building are scaffolding. Write as many as help you work, th
 - Every personal skill I create or edit lives in `~/workspace/pavs/skills` (github.com/lifeofpavs/skills, public). Never create one anywhere else.
 - Install it with symlinks: `~/.agents/skills/<name>` → the repo folder (Codex reads this directly), and `~/.claude/skills/<name>` → `../../.agents/skills/<name>` (for Claude). Never put a personal skill in `~/.codex/skills`.
 - Keep third-party and company-internal skills out of that repo. Commit and push new skills there.
+- When I install a third-party skill, add its `<source> <skill>` to `third-party-skills.txt` in that repo so `install.sh` restores it on a new machine.
