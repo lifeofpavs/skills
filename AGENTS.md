@@ -53,5 +53,5 @@ Tests written while building are scaffolding. Write as many as help you work, th
 
 # Skills
 - Every personal skill I create or edit lives in `~/workspace/pavs/skills` (github.com/lifeofpavs/skills, public). Never create one anywhere else.
-- Install it with symlinks: `~/.agents/skills/<name>` → the repo folder, and `~/.claude/skills/<name>` → `../../.agents/skills/<name>`.
+- Install it with symlinks: `~/.agents/skills/<name>` → the repo folder (Codex reads this directly), and `~/.claude/skills/<name>` → `../../.agents/skills/<name>` (for Claude). Never put a personal skill in `~/.codex/skills`.
 - Keep third-party and company-internal skills out of that repo. Commit and push new skills there.
