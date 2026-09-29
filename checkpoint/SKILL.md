@@ -1,6 +1,6 @@
 ---
 name: checkpoint
-description: Use when user runs /checkpoint to save session progress, decisions, and conversation highlights to ~/.Codex/checkpoints/. Creates timestamped markdown files for session continuity.
+description: Use when user runs /checkpoint to save session progress, decisions, and conversation highlights to ~/.claude/checkpoints/. Creates timestamped markdown files for session continuity.
 ---
 
 # Checkpoint
@@ -40,7 +40,7 @@ Review the conversation and extract:
 
 ### 3. Write Checkpoint File
 
-Path: `~/.Codex/checkpoints/{filename}`
+Path: `~/.claude/checkpoints/{filename}`
 
 ```markdown
 # Session Checkpoint
@@ -88,25 +88,25 @@ Path: `~/.Codex/checkpoints/{filename}`
 
 After writing, confirm:
 ```
-✓ Checkpoint saved: ~/.Codex/checkpoints/{filename}
+✓ Checkpoint saved: ~/.claude/checkpoints/{filename}
 ```
 
 ## Usage with Memory Systems
 
 - **agent-memory**: Reference checkpoints for detailed session history
 - **memory.md**: Checkpoints contain session-specific details
-- **AGENTS.md**: Move important patterns from checkpoints to AGENTS.md
+- **CLAUDE.md**: Move important patterns from checkpoints to CLAUDE.md
 
 ## Viewing Checkpoints
 
 To list recent checkpoints:
 ```bash
-ls -la ~/.Codex/checkpoints/ | head -20
+ls -la ~/.claude/checkpoints/ | head -20
 ```
 
 To read a specific checkpoint:
 ```bash
-cat ~/.Codex/checkpoints/{filename}
+cat ~/.claude/checkpoints/{filename}
 ```
 
 ## Best Practices

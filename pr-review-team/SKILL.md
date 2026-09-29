@@ -26,9 +26,9 @@ A 5-agent review team that examines code from distinct senior perspectives, then
 |------|-------------|-------------|
 | Senior LLM Engineer | `agents/senior-llm-engineer.md` (relative to this skill) | Token efficiency, streaming, AI API patterns, cost |
 | Senior Prompt Engineer | `agents/senior-prompt-engineer.md` (relative to this skill) | Prompt construction, injection risks, template safety |
-| First Principles Engineer | `/Users/pavs/.Codex/agents/first-principles-architect.md` | Over-engineering, unnecessary complexity, minimal solutions |
+| First Principles Engineer | `agents/first-principles-architect.md` (relative to this skill) | Over-engineering, unnecessary complexity, minimal solutions |
 | Senior Software Architect | `agents/senior-software-architect.md` (relative to this skill) | System design, API quality, scalability, boundaries |
-| Devil's Advocate | `/Users/pavs/.Codex/agents/asshole-code-reviewer.md` | Brutally honest, zero-filter, calls out slop |
+| Devil's Advocate | `agents/asshole-code-reviewer.md` (relative to this skill) | Brutally honest, zero-filter, calls out slop |
 
 ## Workflow
 
@@ -48,14 +48,14 @@ Before spawning any agents, collect the shared context that all reviewers need. 
 
 3. **Get PR metadata** (if a PR exists): `gh pr view --json title,body,baseRefName,headRefName,number,url`
 
-4. **Read AGENTS.md** files in affected directories if they exist — these contain project conventions the reviewers should respect.
+4. **Read CLAUDE.md** files in affected directories if they exist — these contain project conventions the reviewers should respect.
 
 Store all of this as the `PR_CONTEXT` block that gets injected into every agent prompt.
 
 ### Step 2: Check Applicability
 
 Do a quick scan of the diff:
-- Does it import or reference `anthropic`, `openai`, `langchain`, `@ai-sdk`, `Codex`, or similar AI libraries?
+- Does it import or reference `anthropic`, `openai`, `langchain`, `@ai-sdk`, `claude`, or similar AI libraries?
 - Does it contain prompt strings, system messages, model configuration, or token-related logic?
 
 If **yes**: all 5 reviewers operate at full scope.
@@ -86,8 +86,8 @@ Review this PR from your specific perspective. Use the output format defined in 
 ```
 
 For the two reused agents (First Principles and Devil's Advocate), read their files at:
-- `/Users/pavs/.Codex/agents/first-principles-architect.md`
-- `/Users/pavs/.Codex/agents/asshole-code-reviewer.md`
+- `agents/first-principles-architect.md`
+- `agents/asshole-code-reviewer.md`
 
 For the three new agents, read their files relative to this skill's directory:
 - `agents/senior-llm-engineer.md`

@@ -50,3 +50,8 @@ Tests written while building are scaffolding. Write as many as help you work, th
 - Talk to me as a colleague, not a supervisor. Short answers, tables or diagrams over prose.
 - Ask decisions as numbered questions so I can answer "1. yes 2. no".
 - On every PR review, also run the ponytail review and a second-model check (Fable, Codex or Opus).
+
+# Skills
+- Every personal skill I create or edit lives in `~/workspace/pavs/skills` (github.com/lifeofpavs/skills, public). Never create one anywhere else.
+- Install it with symlinks: `~/.agents/skills/<name>` → the repo folder, and `~/.claude/skills/<name>` → `../../.agents/skills/<name>`.
+- Keep third-party and company-internal skills out of that repo. Commit and push new skills there.

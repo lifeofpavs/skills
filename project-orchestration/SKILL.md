@@ -7,7 +7,7 @@ description: Use when starting a new multi-agent project that needs organized pl
 
 ## Overview
 
-Scaffolds and manages multi-agent project development using **file-based coordination**. Every agent reads the same files in the repo — works identically in Codex, Codex, or any agent environment.
+Scaffolds and manages multi-agent project development using **file-based coordination**. Every agent reads the same files in the repo — works identically in Claude Code, Codex, or any agent environment.
 
 **Core principle:** The repo IS the coordination layer. No platform-specific messaging required.
 
@@ -16,7 +16,7 @@ Scaffolds and manages multi-agent project development using **file-based coordin
 - Starting a greenfield project with multiple agents
 - Setting up PR-based workflows with dependency tracking
 - Need structured planning before any code is written
-- Coordinating agents across different platforms (Codex + Codex)
+- Coordinating agents across different platforms (Claude Code + Codex)
 - Want TDD enforced from day one
 
 **Don't use for:** Solo projects, quick scripts, single-file changes.
@@ -148,7 +148,7 @@ progress/merged-TASK-004-health-check.md
 
 ## Agent-Agnostic Notes
 
-### Codex
+### Claude Code
 - Use `TeamCreate` to spawn agents
 - Use `SendMessage` for coordination
 - Agents read repo files directly

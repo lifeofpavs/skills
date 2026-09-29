@@ -146,7 +146,7 @@ Alternatives and when to choose what.
 
 ### 6. Create / update entity pages
 
-For every notable person, company, project, or product mentioned: create or update a page in `Brain/Wiki/Entities/`. Pattern: `Brain/Wiki/Entities/Codex.md` (Description with `[[wikilinks]]` · Key Facts · Insights · Related).
+For every notable person, company, project, or product mentioned: create or update a page in `Brain/Wiki/Entities/`. Pattern: `Brain/Wiki/Entities/claude-code.md` (Description with `[[wikilinks]]` · Key Facts · Insights · Related).
 
 - New page: full SCHEMA frontmatter (`type: entity`).
 - Existing page: bump `updated:`. **Add new content; never delete prior claims.** If a new fact contradicts an old one, note both inline with date stamps:
