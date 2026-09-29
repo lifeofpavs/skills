@@ -23,31 +23,18 @@ My personal agent skills and global agent instructions, shared by Claude Code an
 
 `AGENTS.md` holds my global instructions. `CLAUDE.md` is a symlink to it.
 
-## Setup
+## Setup on a new machine
 
 ```sh
-REPO=~/workspace/pavs/skills
-
-# Global instructions (Codex reads ~/.codex/AGENTS.md -> ~/.agents/AGENTS.md)
-ln -sfn $REPO/AGENTS.md ~/.agents/AGENTS.md
-ln -sfn ../.agents/AGENTS.md ~/.codex/AGENTS.md
-ln -sfn $REPO/CLAUDE.md ~/.claude/CLAUDE.md
-
-# Skills: Codex reads ~/.agents/skills directly, Claude reads ~/.claude/skills
-for s in $(ls -d $REPO/*/ | xargs -n1 basename | grep -v memory-sync); do
-  rm -rf ~/.agents/skills/$s ~/.claude/skills/$s
-  ln -s $REPO/$s ~/.agents/skills/$s
-  ln -s ../../.agents/skills/$s ~/.claude/skills/$s
-done
-
-# memory-sync is a Claude command
-ln -sfn $REPO/memory-sync/SKILL.md ~/.claude/commands/memory-sync.md
+curl -fsSL https://raw.githubusercontent.com/lifeofpavs/skills/master/install.sh | bash
 ```
+
+`install.sh` installs Claude Code and Codex if missing, clones this repo to `~/workspace/pavs/skills`, and links `AGENTS.md`, `CLAUDE.md` and every skill into both tools. It is safe to re-run after adding a skill.
 
 ## Adding a skill
 
 1. Create `<name>/SKILL.md` here. Never create a personal skill anywhere else, including `~/.codex/skills`.
-2. Symlink it: `~/.agents/skills/<name>` → this folder and `~/.claude/skills/<name>` → `../../.agents/skills/<name>`.
+2. Run `./install.sh` to link it, or symlink it by hand: `~/.agents/skills/<name>` → this folder and `~/.claude/skills/<name>` → `../../.agents/skills/<name>`.
 3. Commit and push.
 
 This repo is public: third-party and company-internal skills stay out.
