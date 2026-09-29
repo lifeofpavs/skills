@@ -54,7 +54,10 @@ for profile in ~/.claude ~/.claude_*/; do
   profile=${profile%/}
   mkdir -p "$profile/skills" "$profile/commands"
   for s in $personal $third_party; do
-    [ -e ~/.agents/skills/"$s" ] || continue
+    if [ ! -e ~/.agents/skills/"$s" ]; then
+      echo "Skill $s is not installed; it may be renamed upstream"
+      continue
+    fi
     rm -rf "${profile:?}/skills/$s"
     ln -s ~/.agents/skills/"$s" "$profile/skills/$s"
   done
