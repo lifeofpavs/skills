@@ -1,0 +1,4 @@
+interface:
+  display_name: "PostHog LLM SQL Analytics"
+  short_description: "Pull PostHog LLM traces/sessions with SQL"
+  default_prompt: "Use $posthog-llm-sql-analytics to pull raw PostHog LLM trace/session rows over a time window."
