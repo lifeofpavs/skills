@@ -29,6 +29,17 @@ ln -sfn "$REPO/AGENTS.md" ~/.agents/AGENTS.md
 ln -sfn ../.agents/AGENTS.md ~/.codex/AGENTS.md
 ln -sfn "$REPO/CLAUDE.md" ~/.claude/CLAUDE.md
 
+# Third-party skills. CLAUDE_CONFIG_DIR is unset so they land in ~/.claude like the rest.
+if command -v npx >/dev/null; then
+  grep -v '^#' "$REPO/third-party-skills.txt" | while read -r source skills; do
+    # shellcheck disable=SC2086 # $skills is a space-separated list
+    env -u CLAUDE_CONFIG_DIR npx -y skills add "$source" -g -y -a claude-code codex -s $skills </dev/null ||
+      echo "Could not install skills from $source"
+  done
+else
+  echo "npx not found: install Node, then re-run to add third-party skills."
+fi
+
 # Skills: Codex reads ~/.agents/skills directly, Claude reads ~/.claude/skills
 for dir in "$REPO"/*/; do
   s=$(basename "$dir")

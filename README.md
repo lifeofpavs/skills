@@ -29,7 +29,7 @@ My personal agent skills and global agent instructions, shared by Claude Code an
 curl -fsSL https://raw.githubusercontent.com/lifeofpavs/skills/master/install.sh | bash
 ```
 
-`install.sh` installs Claude Code and Codex if missing, clones this repo to `~/workspace/pavs/skills`, and links `AGENTS.md`, `CLAUDE.md` and every skill into both tools. It is safe to re-run after adding a skill.
+`install.sh` installs Claude Code and Codex if missing, clones this repo to `~/workspace/pavs/skills`, installs the third-party skills listed in `third-party-skills.txt` with `npx skills`, and links `AGENTS.md`, `CLAUDE.md` and every skill into both tools. It is safe to re-run after adding a skill.
 
 ## Adding a skill
 
@@ -37,4 +37,4 @@ curl -fsSL https://raw.githubusercontent.com/lifeofpavs/skills/master/install.sh
 2. Run `./install.sh` to link it, or symlink it by hand: `~/.agents/skills/<name>` → this folder and `~/.claude/skills/<name>` → `../../.agents/skills/<name>`.
 3. Commit and push.
 
-This repo is public: third-party and company-internal skills stay out.
+This repo is public: third-party skills are listed in `third-party-skills.txt`, never copied here, and company-internal skills stay out.

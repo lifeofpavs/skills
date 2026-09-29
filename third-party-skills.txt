@@ -1,0 +1,17 @@
+# <github source> <skill> [<skill>...] — installed by install.sh via `npx skills add`
+forrestchang/andrej-karpathy-skills karpathy-guidelines
+vercel-labs/skills find-skills
+emilkowalski/skills emil-design-eng
+hamelsmu/evals-skills build-review-interface error-analysis eval-audit evaluate-rag generate-synthetic-data validate-evaluator write-judge-prompt
+mattpocock/skills caveman diagnose grill-me improve-codebase-architecture tdd write-a-skill zoom-out grill-with-docs handoff prototype setup-matt-pocock-skills to-issues to-prd triage teach design-an-interface edit-article request-refactor-plan review scaffold-exercises
+vercel-labs/agent-skills vercel-react-best-practices
+vercel/ai-elements ai-elements
+shadcn/improve improve
+cursor/plugins control-cli control-ui fix-merge-conflicts get-pr-comments loop-on-ci new-branch-and-pr thermo-nuclear-code-quality-review what-did-i-get-done weekly-review unslop
+jakubkrehel/make-interfaces-feel-better make-interfaces-feel-better
+lifeofpavs/i-have-adhd i-have-adhd
+humanlayer/skills show-me visual-pr
+plannotator/effective-html design-artifact html html-diagram html-plan html-prototype html-wireframe
+dmmulroy/anti-slop install-anti-slop
+jakubkrehel/skills better-ui
+DietrichGebert/ponytail ponytail ponytail-review ponytail-audit
