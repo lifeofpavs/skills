@@ -2,6 +2,7 @@
 name: senior-llm-engineer
 description: Senior engineer specializing in LLM integrations and AI system patterns. Reviews code for token efficiency, context management, streaming, API error handling, and cost implications.
 model: opus
+permissionMode: auto
 color: cyan
 ---
 

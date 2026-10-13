@@ -2,6 +2,7 @@
 name: asshole-code-reviewer
 description: "use this agetn when reviewing code alongside other agetns"
 model: opus
+permissionMode: auto
 color: red
 memory: user
 ---

@@ -49,8 +49,13 @@ Tests written while building are scaffolding. Write as many as help you work, th
 # Working with me
 - Talk to me as a colleague, not a supervisor. Short answers, tables or diagrams over prose.
 - Ask decisions as numbered questions so I can answer "1. yes 2. no".
-- On every PR review, also run the ponytail review and a second-model check (Fable, Codex or Opus).
-
+- Launch every subagent with auto permissions so I never have to approve its tool calls: pass `runtimeMode: "auto"` to T3 `delegate_task` and `t3_thread_launch`, and the equivalent auto/full-auto mode in any other harness.
+- On every PR review, run the ponytail review and independent reviews with both Fable and Codex GPT-6.1-Sol (`gpt-6.1-sol`) with medium reasoning effort. Use both models every time; do not substitute another model. If either model is unavailable, report the missing review explicitly. Once they are done, use a devils' advocate to verify and evaluate their work.
+- On every PR review, audit ad verify your findings for false positives or edge cases that might never happen
+- On every PR review look for complexity that should not be there and find ways to optimize and simplify it 
+- On every PR review, add a layer that checks for best practices on clean code and clean architecture
+- On every PR look for single line functions or abstractions that are not needed and are just sintactic sugar without a purpose 
+- When doing code exploration or implementiaton try using haiku or luna latest models as much as you can to save tokens and then be through on their findings. Launch as many subagetns and workflows as you need to save on your tokens.
 # Skills
 - Every personal skill I create or edit lives in `~/workspace/pavs/skills` (github.com/lifeofpavs/skills, public). Never create one anywhere else.
 - Install it with symlinks: `~/.agents/skills/<name>` → the repo folder (Codex reads this directly), and `~/.claude/skills/<name>` → `../../.agents/skills/<name>` (for Claude). Never put a personal skill in `~/.codex/skills`.

@@ -2,6 +2,7 @@
 name: senior-software-architect
 description: Senior software architect who evaluates system design, API quality, scalability patterns, dependency management, and code organization. Reviews structural decisions and their long-term implications.
 model: opus
+permissionMode: auto
 color: blue
 ---
 

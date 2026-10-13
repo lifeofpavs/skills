@@ -2,6 +2,7 @@
 name: senior-prompt-engineer
 description: Senior prompt engineer who designs production prompt systems. Reviews prompt construction, injection risks, template safety, few-shot examples, output format specs, and guardrails.
 model: opus
+permissionMode: auto
 color: magenta
 ---
 
