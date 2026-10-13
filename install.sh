@@ -40,19 +40,22 @@ else
   echo "npx not found: install Node, then re-run to add third-party skills."
 fi
 
-# Personal skills (memory-sync is a Claude command, not a skill)
-personal=$(cd "$REPO" && ls -d */ | tr -d / | grep -vx memory-sync)
+# Personal skills (memory-sync is a Claude command, agents/ holds Claude agents)
+personal=$(cd "$REPO" && ls -d */ | tr -d / | grep -vxE 'memory-sync|agents')
 for s in $personal; do
   rm -rf ~/.agents/skills/"$s"
   ln -s "$REPO/$s" ~/.agents/skills/"$s"
 done
 
-# Every Claude profile (~/.claude plus any ~/.claude_<name>) gets the same skills
+# Every Claude profile (~/.claude plus any ~/.claude_<name>) gets the same skills and agents
 third_party=$(grep -v '^#' "$REPO/third-party-skills.txt" | cut -d' ' -f2-)
 for profile in ~/.claude ~/.claude_*/; do
   [ -d "$profile" ] || continue
   profile=${profile%/}
-  mkdir -p "$profile/skills" "$profile/commands"
+  mkdir -p "$profile/skills" "$profile/commands" "$profile/agents"
+  for a in "$REPO"/agents/*.md "$REPO"/pr-review-team/agents/*.md; do
+    ln -sfn "$a" "$profile/agents/$(basename "$a")"
+  done
   for s in $personal $third_party; do
     if [ ! -e ~/.agents/skills/"$s" ]; then
       echo "Skill $s is not installed; it may be renamed upstream"
