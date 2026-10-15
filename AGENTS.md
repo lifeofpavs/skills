@@ -12,7 +12,7 @@
 
 # Reviewing PRs
 - Run the ponytail review, then a devil's advocate that verifies every finding.
-- On a repeat review, review only the commits since the last reviewed SHA and the callers they touch, unless I ask for a full review.
+- On a repeat review, review only the delta when the last review comment on the PR names its SHA, that SHA is an ancestor of HEAD, and no merge commits follow it. Otherwise, or when I ask, review in full. Either way, re-check every earlier P0/P1 finding.
 - Add independent reviews with both Fable and Codex GPT-6.1-Sol (`gpt-6.1-sol`, medium reasoning effort) only when the PR changes agent/prompt behavior, money movement, auth or security, or when I ask. If either model is unavailable, report the missing review explicitly.
 - Look for complexity that should not be there: the PR should take the simplest approach and avoid setups that won't scale.
 - Check clean code and clean architecture best practices.
