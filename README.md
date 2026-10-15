@@ -11,7 +11,6 @@ My personal agent skills and global agent instructions, shared by Claude Code an
 | `deep-research` | Researches a topic into my LLM wiki, or queries and lints it |
 | `memory-sync` | Syncs a project's context, decisions and changes into Claude memory (Claude only) |
 | `posthog-llm-sql-analytics` | Pulls PostHog LLM traces and sessions with HogQL |
-| `pr-review-team` | Parallel multi-perspective PR review, consolidated into one review |
 | `project-orchestration` | Plans and coordinates multi-agent projects with file-based handoffs |
 | `prompt-engineering` | Prompt-writing practices for Claude, GPT, Gemini and Grok |
 | `publish-artifact` | Uploads agent-made files and returns a shareable link |

@@ -53,7 +53,7 @@ for profile in ~/.claude ~/.claude_*/; do
   [ -d "$profile" ] || continue
   profile=${profile%/}
   mkdir -p "$profile/skills" "$profile/commands" "$profile/agents"
-  for a in "$REPO"/agents/*.md "$REPO"/pr-review-team/agents/*.md; do
+  for a in "$REPO"/agents/*.md; do
     ln -sfn "$a" "$profile/agents/$(basename "$a")"
   done
   for s in $personal $third_party; do
