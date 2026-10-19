@@ -6,6 +6,7 @@
 - Use smaller models (haiku, luna) as subagents for exploration and implementation, then audit their work thoroughly.
 
 # Filling PRs
+- Always use the `visual-pr` skill to write PR descriptions.
 - Be concise and descriptive whenver you are writting a PR. The title and description should be human friendly and meaningful.
 - Instead of listing what you did, explain it with the reasons behind it, in a huma-readable friendly format. 
 - After opening or pushing to a PR in T3, call `watch_pull_request` and end the turn instead of polling. On wake, fetch new comments and CI results, triage them, fix the valid P0/P1 items, push, and reply on each thread. Never merge the PR or merge main into it unless I ask.
