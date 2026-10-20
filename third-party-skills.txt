@@ -10,7 +10,7 @@ shadcn/improve improve
 cursor/plugins control-cli control-ui fix-merge-conflicts get-pr-comments loop-on-ci new-branch-and-pr thermo-nuclear-code-quality-review what-did-i-get-done weekly-review unslop
 jakubkrehel/make-interfaces-feel-better make-interfaces-feel-better
 lifeofpavs/i-have-adhd i-have-adhd
-humanlayer/skills show-me visual-pr
+humanlayer/skills show-me visual-pr rpi
 plannotator/effective-html design-artifact html html-diagram html-plan html-prototype html-wireframe
 dmmulroy/anti-slop install-anti-slop
 jakubkrehel/skills better-ui
