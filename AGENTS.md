@@ -1,4 +1,5 @@
 # Global guidelines
+- **A good codebase is one that anybody can easily understand and change.** This principle comes first when you plan and when you build. Choose the simplest approach that works, and avoid over-engineering, needless abstraction and clever solutions.
 - Plan before implementing when the change touches more than 2 files. Smaller changes: state the change and how you'll check it, then do it.
 - ALWAY look for gaps in the logic of the feature to be implemented
 - ALWAYS avoid workarounds and think step by step to figure out the proper solution
