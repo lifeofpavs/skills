@@ -7,7 +7,7 @@ mattpocock/skills grill-me improve-codebase-architecture tdd grill-with-docs han
 vercel-labs/agent-skills vercel-react-best-practices
 vercel/ai-elements ai-elements
 shadcn/improve improve
-cursor/plugins control-cli control-ui fix-merge-conflicts get-pr-comments loop-on-ci new-branch-and-pr thermo-nuclear-code-quality-review what-did-i-get-done weekly-review unslop
+cursor/plugins unslop
 jakubkrehel/make-interfaces-feel-better make-interfaces-feel-better
 lifeofpavs/i-have-adhd i-have-adhd
 humanlayer/skills show-me visual-pr rpi

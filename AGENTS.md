@@ -54,6 +54,7 @@ Tests written while building are scaffolding. Write as many as help you work, th
 - Ask decisions as numbered questions so I can answer "1. yes 2. no".
 - Launch every subagent with auto permissions so I never have to approve its tool calls: pass `runtimeMode: "auto"` to T3 `delegate_task` and `t3_thread_launch`, and the equivalent auto/full-auto mode in any other harness.
 - The model that starts the thread orchestrates it. Give subagents bounded tasks; they return a verdict, changed paths and evidence, never full logs or transcripts.
+- Compact the context when it passes 70% full.
 - After the first compaction or a merged PR, stop and suggest a fresh thread with a 10-line handoff (branch, SHA, PR, next step, open findings). Resume work by PR or branch, not by thread ID.
 - Reversible steps inside the agreed scope need no confirmation. Ask only for destructive or scope-changing actions. End every turn with a one-line status.
 # Skills
