@@ -65,6 +65,13 @@ for profile in ~/.claude ~/.claude_*/; do
     ln -s ~/.agents/skills/"$s" "$profile/skills/$s"
   done
   ln -sfn "$REPO/memory-sync/SKILL.md" "$profile/commands/memory-sync.md"
+
+  # Merge shared settings into the profile. jq's `*` replaces arrays, so
+  # claude-settings.json owns the whole hooks.SessionStart list.
+  settings="$profile/settings.json"
+  [ -f "$settings" ] || echo '{}' >"$settings"
+  jq -s '.[0] * .[1]' "$settings" "$REPO/claude-settings.json" >"$settings.tmp"
+  mv "$settings.tmp" "$settings"
 done
 
 echo "Done. Run 'claude' and 'codex' once to log in."

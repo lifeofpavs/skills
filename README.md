@@ -28,7 +28,7 @@ My personal agent skills and global agent instructions, shared by Claude Code an
 curl -fsSL https://raw.githubusercontent.com/lifeofpavs/skills/master/install.sh | bash
 ```
 
-`install.sh` installs Claude Code and Codex if missing, clones this repo to `~/workspace/pavs/skills`, installs the third-party skills listed in `third-party-skills.txt` with `npx skills`, and links `AGENTS.md`, `CLAUDE.md` and every skill into both tools. It is safe to re-run after adding a skill.
+`install.sh` installs Claude Code and Codex if missing, clones this repo to `~/workspace/pavs/skills`, installs the third-party skills listed in `third-party-skills.txt` with `npx skills`, and links `AGENTS.md`, `CLAUDE.md` and every skill into both tools. It also merges `claude-settings.json` (the post-compaction handoff hook and disabled plugins) into every Claude profile's `settings.json`, which needs `jq`. It is safe to re-run after adding a skill.
 
 ## Adding a skill
 

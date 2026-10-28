@@ -1,0 +1,19 @@
+{
+  "enabledPlugins": {
+    "explanatory-output-style@claude-plugins-official": false,
+    "superpowers@superpowers-marketplace": false
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"Context was just compacted. Your next message is a 10-line handoff (branch, SHA, PR, next step, open findings) with no tool calls. Then end the turn so I can continue in a fresh thread.\""
+          }
+        ]
+      }
+    ]
+  }
+}

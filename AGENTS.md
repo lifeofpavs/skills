@@ -10,9 +10,10 @@
 - Always use the `visual-pr` skill to write PR descriptions.
 - Be concise and descriptive whenver you are writting a PR. The title and description should be human friendly and meaningful.
 - Instead of listing what you did, explain it with the reasons behind it, in a huma-readable friendly format. 
-- After opening or pushing to a PR in T3, call `watch_pull_request` and end the turn instead of polling. On wake, fetch new comments and CI results, triage them, fix the valid P0/P1 items, push, and reply on each thread. Never merge the PR or merge main into it unless I ask.
+- After opening or pushing to a PR in T3, hand the watching to a new T3 thread (`t3_thread_launch`, a small model such as Sonnet or Luna, auto mode) so wake-ups run on a small context. Its prompt is the PR URL, the branch, and this loop: call `watch_pull_request` and end the turn instead of polling; on wake, fetch new comments and CI results, triage them, fix the valid P0/P1 items, push, and reply on each thread. Never merge the PR or merge main into it unless I ask.
 
 # Reviewing PRs
+- Read a PR with `git diff --stat` first, then diff the in-scope files one at a time.
 - Run the ponytail review, then a devil's advocate that verifies every finding.
 - On a repeat review, review only the delta when the last review comment on the PR names its SHA, that SHA is an ancestor of HEAD, and no merge commits follow it. Otherwise, or when I ask, review in full. Either way, re-check every earlier P0/P1 finding.
 - Add independent reviews with both Fable and Codex GPT-6.1-Sol (`gpt-6.1-sol`, medium reasoning effort) only when the PR changes agent/prompt behavior, money movement, auth or security, or when I ask. If either model is unavailable, report the missing review explicitly.
