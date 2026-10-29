@@ -7,7 +7,7 @@
 - Use smaller models (haiku, luna) as subagents for exploration and implementation, then audit their work thoroughly.
 
 # Commits
-- Always write commit messages as Conventional Commits: `type(scope): plain-language summary` (e.g. `feat(token-intel): save like and retweet counts for news tweets`).
+- Always write commit messages and PR titles as Conventional Commits: `type(scope): plain-language summary` (e.g. `feat(token-intel): save like and retweet counts for news tweets`). PR titles count because squash merges turn them into the commit on `main`.
 
 # Filling PRs
 - Always use the `visual-pr` skill to write PR descriptions.
