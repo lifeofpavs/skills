@@ -58,7 +58,8 @@ Tests written while building are scaffolding. Write as many as help you work, th
 - Ask decisions as numbered questions so I can answer "1. yes 2. no".
 - Launch every subagent with auto permissions so I never have to approve its tool calls: pass `runtimeMode: "auto"` to T3 `delegate_task` and `t3_thread_launch`, and the equivalent auto/full-auto mode in any other harness.
 - The model that starts the thread orchestrates it. Give subagents bounded tasks; they return a verdict, changed paths and evidence, never full logs or transcripts.
-- After the first compaction or a merged PR, stop and suggest a fresh thread with a 10-line handoff (branch, SHA, PR, next step, open findings). Resume work by PR or branch, not by thread ID.
+- After a merged PR, stop and suggest a fresh thread with a 10-line handoff (branch, SHA, PR, next step, open findings). Resume work by PR or branch, not by thread ID.
+- Downscale screenshots to at most 1280px (`sips -Z 1280 <file>`) before reading them, and never re-read an image already in context.
 - Reversible steps inside the agreed scope need no confirmation. Ask only for destructive or scope-changing actions. End every turn with a one-line status.
 # Skills
 - Every personal skill I create or edit lives in `~/workspace/pavs/skills` (github.com/lifeofpavs/skills, public). Never create one anywhere else.
