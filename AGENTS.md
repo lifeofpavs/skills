@@ -13,6 +13,7 @@
 - Always use the `visual-pr` skill to write PR descriptions.
 - Be concise and descriptive whenver you are writting a PR. The title and description should be human friendly and meaningful.
 - Instead of listing what you did, explain it with the reasons behind it, in a huma-readable friendly format. 
+- To put images or videos in a PR description, issue or comment, use `gh`'s `--attach <file>#<alt>` flag (gh 2.99+, works with `gh pr comment`, `--edit-last` and `--body-file`). It uploads to `github.com/user-attachments`, which keeps the repo's visibility. Never host screenshots on gists, branches or other repos.
 - After opening or pushing to a PR in T3, hand the watching to a new T3 thread (`t3_thread_launch`, a small model such as Sonnet or Luna, auto mode) so wake-ups run on a small context. Its prompt is the PR URL, the branch, and this loop: call `watch_pull_request` and end the turn instead of polling; on wake, fetch new comments and CI results, triage them, fix the valid P0/P1 items, push, and reply on each thread. Never merge the PR or merge main into it unless I ask.
 
 # Reviewing PRs
